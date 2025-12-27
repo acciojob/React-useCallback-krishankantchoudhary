@@ -6,10 +6,10 @@ const SkillList = ({ skills, deleteSkill }) => {
   };
   return (
     <div>
-      <ul>
+      <ul id="skill-list">
         {skills.map((skill, index) => (
           <li
-            id="skill-number-idx"
+            id={`skill-number-${index}`}
             key={index}
             onClick={() => handledelete(index)}
             style={{
