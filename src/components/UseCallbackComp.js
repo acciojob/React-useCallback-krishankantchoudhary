@@ -4,7 +4,8 @@ import SkillList from "./SkillList";
 const UseCallbackComp=({skills,addSkill,deleteSkill})=>{
     const[skill,setSkill]=useState("")
 
-    const handleAdd=()=>{
+    const handleAdd=(e)=>{
+        e.preventDefault();
         if(skill.trim()==="")return;
         addSkill(skill)
         setSkill("")
@@ -18,10 +19,13 @@ const UseCallbackComp=({skills,addSkill,deleteSkill})=>{
                 value={skill}
                 onChange={(e)=>setSkill(e.target.value)}
                 />
-                <button type="button"
+                <button 
                 id="skill-add-btn"
+                 type="button" 
                 onClick={handleAdd}
-                >Add Skill</button>
+                >
+                Add Skill
+                </button>
             </form>
             <SkillList deleteSkill={deleteSkill} skills={skills}/>
         </div>
