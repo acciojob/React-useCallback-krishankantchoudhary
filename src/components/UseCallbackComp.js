@@ -5,11 +5,13 @@ const UseCallbackComp = ({ skills, addSkill, deleteSkill }) => {
   const [skill, setSkill] = useState("");
 
   const handleAdd = (e) => {
-    e.preventDefault(); // ✅ stops double submit
-    if (skill.trim() === "") return;
-    addSkill(skill);
-    setSkill("");
-  };
+  e.preventDefault();
+  if (skill.trim() === "") return;
+  if (skills.includes(skill)) return; // ✅ duplicate check
+  addSkill(skill);
+  setSkill("");
+};
+
 
   return (
     <div>
